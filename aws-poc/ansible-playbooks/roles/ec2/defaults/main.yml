@@ -1,0 +1,12 @@
+---
+# defaults file for ec2
+
+ami_id: 'ami-06963965'
+instance_type: 't2.micro'
+region: 'ap-southeast-1'
+az: 'ap-southeast-1a'
+instance_count: 1
+root_volume_size: 8
+delete_volume: true
+vpc_cidr: '172.16.0.0/16'
+subnet_cidr01: '172.16.0.0/24'

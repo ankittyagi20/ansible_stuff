@@ -1,0 +1,6 @@
+- hosts: instances
+  roles:
+    - bootstrap
+    - docker
+  gather_facts: no
+  become: yes
