@@ -2,7 +2,7 @@
 - name: Set up prometheus
   hosts: prom-01
   gather_facts: true
-  user: centos
+  user: root
   become: true
   vars_files:
   - ../ansible-environments/group_vars/grpvars.yml
