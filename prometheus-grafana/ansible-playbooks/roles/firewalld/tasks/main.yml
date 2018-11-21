@@ -1,0 +1,24 @@
+---
+# tasks file for firewalld
+- name: Make sure firewalld is installed
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - firewalld
+    - python-firewall
+
+- name: start and enable service
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: add firewall services
+  firewalld:
+    port: "{{ item }}"
+    permanent: true
+    state: enabled
+  with_items: "{{ firewalld_ports }}"
+  notify: reload firewalld
+

@@ -1,0 +1,15 @@
+---
+domain: dm.abc.com
+
+send_to:
+  - ankittyagi20@gmail.com
+
+prometheus_hosts:
+  - nginx.dm.abc.com
+  - jumper.dm.abc.com
+  - nfs.dm.abc.com
+  - ns1.dm.abc.com
+  - emby.dm.abc.com
+  - tower.dm.abc.com
+  - ns2.dm.abc.com
+  - repos.dm.abc.com

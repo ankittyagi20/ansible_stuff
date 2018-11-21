@@ -1,0 +1,17 @@
+- name: Copy alertmanager config
+  template:
+    src: alertmanager.yml.j2
+    dest: "{{ alertmanager_dir }}/alertmanager.yml"
+    owner: root
+    group: root
+    mode: 0600
+  notify: restart alertmanager
+
+- name: Copy alertmanager service file
+  template:
+    src: alertmanager.service.j2
+    dest: "{{ systemd_dir }}/alertmanager.service"
+    owner: root
+    group: root
+    mode: 0644
+  notify: reload daemons

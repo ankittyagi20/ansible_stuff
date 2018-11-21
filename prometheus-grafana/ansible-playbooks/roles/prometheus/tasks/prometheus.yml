@@ -1,0 +1,23 @@
+---
+
+- name: Create Prometheus directory
+  file:
+    
+
+- name: Copy rules file
+  template:
+    src: rules.j2
+    dest: "{{ prometheus_dir }}/all.rules"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart prometheus
+
+- name: Copy prometheus service file
+  template:
+    src: prometheus.service.j2
+    dest: "{{ systemd_dir }}/prometheus.service"
+    owner: root
+    group: root
+    mode: 0644
+  notify: reload daemons

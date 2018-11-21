@@ -1,0 +1,30 @@
+{% raw %}
+ALERT service_down
+  IF up == 0
+  ANNOTATIONS {
+    summary = "{{ $labels.job }} is down",
+  }
+
+ALERT cpu_threshold_exceeded
+  IF (1 - avg by(job)(irate(node_cpu{mode='idle'}[5m]))) > .90
+  ANNOTATIONS {
+    summary = "{{ $labels.job }}'s CPU usage is dangerously high",
+    description = "{{ $labels.job }}'s CPU usage has exceeded the 90% threshold with a 5 minute load value of {{ $value }}.",
+  }
+
+ALERT mem_threshold_exceeded
+  IF ((node_memory_MemTotal - node_memory_MemFree - node_memory_Cached) / (node_memory_MemTotal )) * 100  > 90
+  ANNOTATIONS {
+    summary = "{{ $labels.job }}'s memory usage is dangerously high",
+    description = "{{ $labels.job }}'s memory usage has exceeded the 90% threshold with a value of {{ $value }}%.",
+  }
+
+ALERT filesystem_threshold_exceeded
+  IF node_filesystem_avail{mountpoint='/'} / node_filesystem_size * 100 < 20
+  ANNOTATIONS {
+    summary = "{{ $labels.job }}'s filesystem usage is dangerously high",
+    description = "{{ $labels.job }}'s filesystem only has {{ $value }}% free.",
+  }
+
+
+{% endraw %}

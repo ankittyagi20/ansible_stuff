@@ -1,0 +1,5 @@
+---
+firewalld_ports:
+  - 3000/tcp
+  - 9090/tcp
+  - 9093/tcp

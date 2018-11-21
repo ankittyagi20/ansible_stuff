@@ -1,0 +1,12 @@
+---
+# tasks file for grafana
+- name: Install grafana
+  package:
+    name: "{{ grafana_pkg }}"
+    state: present
+
+- name: Start grafana
+  service:
+    name: grafana-server
+    state: started
+    enabled: yes

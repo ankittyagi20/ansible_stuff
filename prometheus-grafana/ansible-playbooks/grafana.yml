@@ -1,0 +1,11 @@
+---
+- name: Set up grafana
+  hosts: prom-01
+  gather_facts: true
+  user: centos
+  become: true
+  vars_files:
+  - ../ansible-environments/group_vars/grpvars.yml
+
+  roles:
+    - grafana

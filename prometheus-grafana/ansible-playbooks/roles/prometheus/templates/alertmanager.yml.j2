@@ -1,0 +1,17 @@
+global:
+  # The smarthost and SMTP sender used for mail notifications.
+  smtp_smarthost: '{{ smtp_server }}:{{ smtp_port }}'
+  smtp_from: '{{ from_address }}'
+  smtp_auth_username: '{{ smtp_username }}'
+  smtp_auth_password: {{ smtp_pass }}
+
+route:
+  receiver: default
+  group_interval: 0s
+
+receivers:
+  - name: default
+    email_configs:
+{% for item in send_to %}
+      - to: '{{ item }}'
+{% endfor %}

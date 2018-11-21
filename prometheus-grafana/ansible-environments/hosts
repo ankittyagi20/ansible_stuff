@@ -1,0 +1,10 @@
+---
+[prom-01]
+172.20.10.3 
+#spider
+#araas2
+
+[all:vars]
+#ANSIBLE_HOST_KEY_CHECKING=False #it has no effect here, set the env variable or update ansible.cfg
+ansible_ssh_private_key_file="~/keys/spider"
+ansible_ssh_user="root"
