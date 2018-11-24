@@ -1,15 +1,19 @@
 ---
-domain: dm.abc.com
-
-send_to:
-  - ankittyagi20@gmail.com
-
-prometheus_hosts:
-  - nginx.dm.abc.com
-  - jumper.dm.abc.com
-  - nfs.dm.abc.com
-  - ns1.dm.abc.com
-  - emby.dm.abc.com
-  - tower.dm.abc.com
-  - ns2.dm.abc.com
-  - repos.dm.abc.com
+#domain: dm.abc.com
+#
+#send_to:
+#  - ankittyagi20@gmail.com
+#
+prometheus_hosts: 
+  - 172.20.10.3:9200
+  - localhost:9200
+#  - localhost
+  #- "172.20.10.3:9200"
+#  - nginx.dm.abc.com
+#  - jumper.dm.abc.com
+#  - nfs.dm.abc.com
+#  - ns1.dm.abc.com
+#  - emby.dm.abc.com
+#  - tower.dm.abc.com
+#  - ns2.dm.abc.com
+#  - repos.dm.abc.com

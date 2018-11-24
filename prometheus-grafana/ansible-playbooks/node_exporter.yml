@@ -1,5 +1,6 @@
 ---
-- name: Set up prometheus
+
+- name: Set up Node Exporter
   hosts: prom
   gather_facts: true
   user: root
@@ -9,5 +10,5 @@
   - ../ansible-environments/group_vars/prometheus.yml
 
   roles:
-    - prometheus
-    - firewalld
+    - node_exporter
+

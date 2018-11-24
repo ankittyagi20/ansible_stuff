@@ -1,6 +1,6 @@
 ---
 - name: Set up grafana
-  hosts: prom-01
+  hosts: prom
   gather_facts: true
   user: centos
   become: true

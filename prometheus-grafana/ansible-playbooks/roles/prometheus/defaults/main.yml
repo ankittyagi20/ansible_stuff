@@ -61,8 +61,10 @@ prometheus_scrape_configs:
   - job_name: "prometheus"
     metrics_path: "{{ prometheus_metrics_path }}"
     static_configs:
-      - targets:
-          - "{{ ansible_fqdn | default(ansible_host) | default('localhost') }}:9090"
+      - targets: "{{ prometheus_hosts }}"
+      #with_items: "{{ prometheus_hosts.split() }}"
+          #- "{{ prometheus_hosts.split() }}"
+          #- "{{ ansible_fqdn | default(ansible_host) | default('localhost') }}:9090"
   - job_name: "node"
     file_sd_configs:
       - files:

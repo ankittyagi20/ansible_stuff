@@ -1,0 +1,6 @@
+---
+# defaults file for node_exporter
+
+node_exporter_package_url: https://github.com/prometheus/node_exporter/releases/download/v0.15.1/node_exporter-0.15.1.linux-amd64.tar.gz
+node_exporter_package_name: "node_exporter-0.15.1.linux-amd64"
+collectors: "meminfo,loadavg,filesystem"

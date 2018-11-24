@@ -1,0 +1,26 @@
+---
+# tasks file for node_exporter
+
+- name: Download node exporter package
+  unarchive:
+    src: "{{ node_exporter_package_url }}"
+    dest: /var/tmp
+    remote_src: yes
+
+- name: Copy the node_exporter binary to `/usr/local/bin`
+  copy:
+    src: "/var/tmp/{{ node_exporter_package_name }}/node_exporter"
+    dest: "/usr/local/bin"
+    remote_src: yes
+    mode: u=rwx,g=rx,o=rx
+
+- name: Create node_exporter service file
+  template:
+    src: node_exporter.service.j2
+    dest: /etc/systemd/system/node_exporter.service
+
+- name: Start node_exporter service
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: node_exporter
