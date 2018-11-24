@@ -1,13 +1,11 @@
 [Unit]
 Description=Node Exporter
-Wants=network-online.target
-After=network-online.target
 
 [Service]
-User=node_exporter
-Group=node_exporter
+User=root
+Group=root
 Type=simple
-ExecStart=/usr/local/bin/node_exporter --web.listen-address=":9200"
+ExecStart=/usr/local/bin/node_exporter --web.listen-address=0.0.0.0:"{{ node_exporter_port }}"
 
 [Install]
 WantedBy=multi-user.target
