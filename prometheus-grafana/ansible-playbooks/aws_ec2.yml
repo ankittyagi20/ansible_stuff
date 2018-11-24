@@ -1,0 +1,11 @@
+---
+- name: Create ec2 instance
+  hosts: prom
+  gather_facts: true
+  user: root
+  become: true
+  vars_files:
+  - ../ansible-environments/group_vars/all.yml
+
+  roles:
+    - ec2

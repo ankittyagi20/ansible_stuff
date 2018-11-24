@@ -1,7 +1,5 @@
 ---
-
-environment: dev
-node_exporter_port: 9200
+# defaults file for ec2
 
 ami_id: 'ami-06963965'
 instance_type: 't2.micro'
