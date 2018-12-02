@@ -1,15 +1,22 @@
 ---
 
-environment: dev
+environment: "dev"
 node_exporter_port: 9200
 
-ami_id: 'ami-06963965'
+ami_id: 'ami-9887c6e7'
 instance_type: 't2.micro'
-region: 'ap-southeast-1'
-az: 'ap-southeast-1a'
+region: 'us-east-1'
+az: 'us-east-1a'
 instance_count: 1
 root_volume_size: 8
 delete_volume: true
-vpc_id: 'vpc-89sa7dadasdsa'
-monitoring_host_subnet_id: 'subnet-34bbkj2hbj'
-key_name: "monitoring"
+vpc_id: 'vpc-06dd86638005bea68'
+monitoring_host_subnet_id: 'subnet-03fe19eb424dac11b'
+key_name: "aco-stage"
+#postfix_sasl_username: "smtpuser"
+#postfix_sasl_password: "smtppass"
+create_ec2: False
+smtp_host: localhost
+smtp_port: 25
+from_email: admin@grafana.localhost
+from_name: Grafana

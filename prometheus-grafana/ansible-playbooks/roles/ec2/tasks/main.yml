@@ -46,7 +46,7 @@
       volume_size: "{{ root_volume_size }}"
       delete_on_termination: "{{ delete_volume }}"
     instance_tags:
-      Name: 'aws-poc-{{ env }}'
+      Name: "aws-poc-{{ environment }}"
     vpc_subnet_id: "{{ monitoring_host_subnet_id }}"
     assign_public_ip: yes
   register: ins
@@ -54,8 +54,8 @@
 
 - name: Populate inventory
   lineinfile:
-    dest: "{{ vars.inventory }}"
-    insertafter: '\[instances\]'
+    dest: "/Users/ankityag/automation/ansible_stuff/prometheus-grafana/ansible-environments/hosts"
+    insertafter: '\[prom\]'
     line: "{{ item.public_ip }}"
     state: present
   with_items:

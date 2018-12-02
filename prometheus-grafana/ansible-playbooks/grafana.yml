@@ -5,7 +5,8 @@
   user: centos
   become: true
   vars_files:
-  - ../ansible-environments/group_vars/grpvars.yml
+    - ../ansible-environments/group_vars/grpvars.yml
+    - ../ansible-environments/group_vars/all.yml
 
   roles:
     - grafana

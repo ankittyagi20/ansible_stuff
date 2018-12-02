@@ -5,6 +5,11 @@
     name: "{{ grafana_pkg }}"
     state: present
 
+- name: Grafana configuration
+  template:
+    src: grafana.ini.j2
+    dest: /etc/grafana/grafana.ini
+
 - name: Start grafana
   service:
     name: grafana-server
