@@ -3,20 +3,20 @@
 environment: "dev"
 node_exporter_port: 9200
 
-ami_id: 'ami-9887c6e7'
+ami_id: ''
 instance_type: 't2.micro'
 region: 'us-east-1'
 az: 'us-east-1a'
 instance_count: 1
 root_volume_size: 8
 delete_volume: true
-vpc_id: 'vpc-06dd86638005bea68'
-monitoring_host_subnet_id: 'subnet-03fe19eb424dac11b'
-key_name: "aco-stage"
+vpc_id: ''
+monitoring_host_subnet_id: ''
+key_name: "monitoring"
 #postfix_sasl_username: "smtpuser"
 #postfix_sasl_password: "smtppass"
-create_ec2: False
 smtp_host: localhost
 smtp_port: 25
 from_email: admin@grafana.localhost
 from_name: Grafana
+grafana_pkg: https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.1.4-1.x86_64.rpm
