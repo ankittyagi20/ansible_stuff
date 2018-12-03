@@ -1,5 +1,5 @@
 ---
-#- include: aws_ec2.yml
+- include: aws_ec2.yml
 - include: prometheus.yml
 - include: grafana.yml
 - include: node_exporter.yml
